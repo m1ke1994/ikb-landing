@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from "vue"
 import { SplineScene } from "@/components/ui/splite"
 import DarkNavbar from "@/components/ui/DarkNavbar.vue"
@@ -37,123 +37,66 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="home-view relative flex flex-col overflow-hidden bg-gradient-to-br from-black via-[#050713] to-black text-neutral-100">
+  <div class="home-view relative flex flex-col overflow-hidden bg-gradient-to-r from-white via-neutral-200 to-black text-neutral-900">
     <DarkNavbar />
-    <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(0,204,255,0.1),transparent_60%)]" />
 
-    <main
-      id="home"
-      class="relative flex flex-1 h-full min-h-0 flex-col overflow-y-auto pt-24 lg:overflow-hidden"
-    >
-      <div
-        class="absolute inset-0 z-0 flex justify-end overflow-hidden"
-        aria-hidden="true"
-      >
-        <div class="relative h-full w-full lg:w-1/2">
+    <main id="home" class="relative flex flex-1 h-full min-h-0 flex-col overflow-hidden pt-24">
+      <div class="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-neutral-200 to-black" />
+        <div class="absolute inset-y-0 right-[-15%] w-[135%] md:right-[-10%] md:w-[115%] lg:right-[-6%] lg:w-[78%]">
           <SplineScene
             class-name="h-full w-full"
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             :zoom="heroZoom"
           />
-          <div class="pointer-events-none absolute inset-0 bg-gradient-to-l from-black via-black/40 to-transparent" />
         </div>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent" />
       </div>
-      <div
-        class="relative z-10 flex min-h-0 w-full flex-col justify-center gap-10 px-6 py-12 text-left lg:max-w-xl lg:overflow-y-auto lg:px-12 lg:py-20"
+
+      <section
+        id="about"
+        class="relative z-10 mx-auto flex w-full max-w-3xl flex-col gap-8 px-6 pb-20 pt-14 text-left lg:mx-0 lg:w-[42%] lg:px-12 lg:pb-24 lg:pt-16"
       >
-        <div class="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
-        <div class="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
-
-        <section
-          id="about"
-          class="relative space-y-6 text-left text-neutral-200"
-        >
-          <h1 class="fade-up text-4xl font-bold leading-tight text-white md:text-5xl">
-            Инновационное Конструкторское Бюро
+        <header class="space-y-4">
+          <span class="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-600">
+            Интеллектуальные решения
+          </span>
+          <h1 class="space-y-3">
+            <span class="block bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 bg-clip-text text-4xl font-bold leading-tight text-transparent md:text-5xl lg:text-[3.25rem]">
+              Инновационное
+            </span>
+            <span class="block text-4xl font-bold leading-tight text-neutral-900 md:text-5xl lg:text-[3.25rem]">
+              Конструкторское бюро
+            </span>
           </h1>
-          <p class="fade-up fade-up-delay-1 text-sm leading-relaxed text-neutral-300 md:text-base">
-            Мы создаём микроконтроллерные устройства нового поколения — надёжные, безопасные и интеллектуальные.
-            Объединяя инженеров, программистов и конструкторов, мы превращаем идеи в работающие системы.
-          </p>
-          <p class="fade-up fade-up-delay-2 text-xs font-semibold uppercase tracking-[0.35em] text-cyan-200/90">
-            Инновационность — Конфиденциальность — Безопасность
-          </p>
-        </section>
+        </header>
 
-        <div class="hidden h-px w-24 bg-white/10 lg:block" />
+        <p class="text-base leading-relaxed text-neutral-700 md:text-lg">
+          Мы создаём интеллектуальные системы управления и микроконтроллерные устройства, объединяя надёжность промышленной электроники и гибкость современных алгоритмов. От идеи до готового изделия — полный цикл инженерии и программирования.
+        </p>
 
-        <section id="projects" class="space-y-3 text-sm text-neutral-300 md:text-base">
-          <h2 class="text-base font-semibold uppercase tracking-[0.3em] text-white/80">Проекты</h2>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3">
-              <span class="mt-1 inline-block h-2 w-2 flex-shrink-0 rounded-full bg-cyan-300/70" />
-              Индивидуальные контроллеры для специализированных производственных линий и роботизированных комплексов.
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-1 inline-block h-2 w-2 flex-shrink-0 rounded-full bg-cyan-300/70" />
-              Защищённые устройства телеметрии для распределённых инфраструктур и критических систем.
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-1 inline-block h-2 w-2 flex-shrink-0 rounded-full bg-cyan-300/70" />
-              AR/VR-стенды для демонстрации цифровых двойников и обучения технического персонала.
-            </li>
-          </ul>
-        </section>
+        <p class="text-sm text-neutral-600 md:text-base">
+          Наши решения работают там, где важны точность, защита и автономность: в промышленности, энергетике и научных проектах.
+        </p>
 
-        <section id="tech" class="space-y-3 text-sm text-neutral-300 md:text-base">
-          <h2 class="text-base font-semibold uppercase tracking-[0.3em] text-white/80">Технологии</h2>
-          <p>
-            Мы сочетаем физические симуляции, генеративные пайплайны и вычисления на GPU,
-            чтобы передать характер материалов и движение света в интерактивных интерфейсах и промышленных панелях.
-          </p>
-        </section>
-
-        <section id="clients" class="space-y-3 text-sm text-neutral-300 md:text-base">
-          <h2 class="text-base font-semibold uppercase tracking-[0.3em] text-white/80">Клиенты</h2>
-          <p>
-            Партнёримся с промышленными компаниями, девелоперами и культурными институциями, помогая им презентовать
-            сложные идеи через кинетические шоурумы и mixed reality инсталляции.
-          </p>
-        </section>
-
-        <a
-          id="contacts"
-          href="#"
-          class="inline-flex w-fit items-center gap-3 rounded-full border border-cyan-400/40 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-cyan-400/60 hover:bg-white/10"
-        >
-          Связаться с нами
-        </a>
-      </div>
-
+        <div class="flex flex-wrap items-center gap-4">
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center rounded-full bg-cyan-500 px-7 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
+          >
+            Связаться с нами
+          </a>
+          <div class="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-neutral-500">
+            <span class="h-10 w-px bg-neutral-300" />
+            <span>Надёжность. Гибкость. Контроль.</span>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 </template>
 
 <style scoped>
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-up {
-  opacity: 0;
-  animation: fade-up 0.8s ease-out forwards;
-}
-
-.fade-up-delay-1 {
-  animation-delay: 0.1s;
-}
-
-.fade-up-delay-2 {
-  animation-delay: 0.2s;
-}
-
 .home-view {
   min-height: 100vh;
   height: 100vh;

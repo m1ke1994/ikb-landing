@@ -1,14 +1,15 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from "vue"
 
 const isScrolled = ref(false)
 
 const links = [
-  { href: "#about", label: "О компании" },
-  { href: "#projects", label: "Проекты" },
-  { href: "#tech", label: "Технологии" },
-  { href: "#clients", label: "Клиенты" },
-  { href: "#contacts", label: "Контакты" },
+  { href: "#home", label: "Главная" },
+  { href: "#about", label: "О нас" },
+  { href: "#products", label: "Продукты" },
+  { href: "#certificates", label: "Сертификаты" },
+  { href: "#portfolio", label: "Portfolio" },
+  { href: "#contact", label: "Контакты" },
 ]
 
 const handleScroll = () => {
