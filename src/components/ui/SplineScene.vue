@@ -72,8 +72,9 @@ onBeforeUnmount(() => {
   <div :class="cn('relative h-full w-full', props.className)">
     <canvas
       ref="canvasRef"
-      class="h-full w-full"
+      class="h-full w-full bg-transparent"
       role="img"
+      style="background: transparent"
       :aria-busy="isLoading"
     />
 
