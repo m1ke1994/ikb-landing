@@ -1,6 +1,10 @@
 ﻿<script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from "vue"
 
+const emit = defineEmits<{
+  (event: "navigate", hash: string): void
+}>()
+
 const isScrolled = ref(false)
 
 const links = [
@@ -13,6 +17,11 @@ const links = [
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 12
+}
+
+const handleNavigate = (event: MouseEvent, hash: string) => {
+  event.preventDefault()
+  emit("navigate", hash)
 }
 
 onMounted(() => {
@@ -33,7 +42,11 @@ onBeforeUnmount(() => {
     ]"
   >
     <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 lg:px-10">
-      <a href="#home" class="text-base font-semibold uppercase tracking-[0.4em] text-white">
+      <a
+        href="#home"
+        class="text-base font-semibold uppercase tracking-[0.4em] text-white"
+        @click="handleNavigate($event, '#home')"
+      >
         IKB
       </a>
 
@@ -43,6 +56,7 @@ onBeforeUnmount(() => {
           :key="link.href"
           :href="link.href"
           class="transition hover:text-white"
+          @click="handleNavigate($event, link.href)"
         >
           {{ link.label }}
         </a>
