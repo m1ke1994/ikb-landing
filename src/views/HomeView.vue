@@ -1,7 +1,6 @@
 ﻿<script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from "vue"
 import { SplineScene } from "@/components/ui/splite"
-import { Spotlight } from "@/components/ui/spotlight"
 import DarkNavbar from "@/components/ui/DarkNavbar.vue"
 
 const heroZoom = ref(0.85)
@@ -119,7 +118,6 @@ onBeforeUnmount(() => {
           scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
           :zoom="heroZoom"
         />
-        <Spotlight class="pointer-events-none left-6 top-20 z-30 lg:-top-10 lg:left-1/3" fill="#ffffff" />
       </div>
     </main>
   </div>
