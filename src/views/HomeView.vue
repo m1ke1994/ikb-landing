@@ -38,13 +38,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="relative flex min-h-screen flex-col overflow-hidden bg-gradient-to-br from-black via-[#050713] to-black text-neutral-100">
+  <div class="home-view relative flex flex-col overflow-hidden bg-gradient-to-br from-black via-[#050713] to-black text-neutral-100">
     <DarkNavbar />
     <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(0,204,255,0.1),transparent_60%)]" />
 
-    <main id="home" class="relative flex flex-1 flex-col pt-24 lg:flex-row">
+    <main
+      id="home"
+      class="relative flex flex-1 h-full min-h-0 flex-col overflow-y-auto pt-24 lg:flex-row lg:overflow-hidden"
+    >
       <div
-        class="relative z-20 flex w-full flex-col justify-center gap-10 px-6 py-12 text-left lg:max-w-xl lg:px-12 lg:py-20"
+        class="relative z-20 flex min-h-0 w-full flex-col justify-center gap-10 px-6 py-12 text-left lg:max-w-xl lg:overflow-y-auto lg:px-12 lg:py-20"
       >
         <div class="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
         <div class="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
@@ -145,5 +148,17 @@ onBeforeUnmount(() => {
 
 .fade-up-delay-2 {
   animation-delay: 0.2s;
+}
+
+.home-view {
+  min-height: 100vh;
+  height: 100vh;
+}
+
+@supports (height: 100dvh) {
+  .home-view {
+    min-height: 100dvh;
+    height: 100dvh;
+  }
 }
 </style>
