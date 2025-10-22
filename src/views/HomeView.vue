@@ -43,10 +43,23 @@ onBeforeUnmount(() => {
 
     <main
       id="home"
-      class="relative flex flex-1 h-full min-h-0 flex-col overflow-y-auto pt-24 lg:flex-row lg:overflow-hidden"
+      class="relative flex flex-1 h-full min-h-0 flex-col overflow-y-auto pt-24 lg:overflow-hidden"
     >
       <div
-        class="relative z-20 flex min-h-0 w-full flex-col justify-center gap-10 px-6 py-12 text-left lg:max-w-xl lg:overflow-y-auto lg:px-12 lg:py-20"
+        class="absolute inset-0 z-0 flex justify-end overflow-hidden"
+        aria-hidden="true"
+      >
+        <div class="relative h-full w-full lg:w-1/2">
+          <SplineScene
+            class-name="h-full w-full"
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            :zoom="heroZoom"
+          />
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-l from-black via-black/40 to-transparent" />
+        </div>
+      </div>
+      <div
+        class="relative z-10 flex min-h-0 w-full flex-col justify-center gap-10 px-6 py-12 text-left lg:max-w-xl lg:overflow-y-auto lg:px-12 lg:py-20"
       >
         <div class="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
         <div class="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
@@ -112,13 +125,6 @@ onBeforeUnmount(() => {
         </a>
       </div>
 
-      <div class="relative flex flex-1 overflow-hidden">
-        <SplineScene
-          class-name="h-full w-full"
-          scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-          :zoom="heroZoom"
-        />
-      </div>
     </main>
   </div>
 </template>
